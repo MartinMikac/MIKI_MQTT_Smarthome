@@ -1,0 +1,10 @@
+composer.lock
+.vagrant/
+vendor/
+config/development.config.php
+data/cache/*
+!data/cache/.gitkeep
+/nbproject/private/
+config/autoload/development.local.php.dist
+config/autoload/local.php
+*.png
