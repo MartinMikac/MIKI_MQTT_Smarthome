@@ -14,21 +14,22 @@
         <!-- Le styles -->
         <?=
                 $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
-
-                //->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
-                ->prependStylesheet($this->basePath('css/bootstrap.css'))
                 ->prependStylesheet($this->basePath('css/style.css'))
+                //->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+                ->prependStylesheet($this->basePath('css/glyphicon.min.css'))
+                ->prependStylesheet($this->basePath('css/signin.css'))
         ?>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
         <!-- Scripts -->
         <?=
                 $this->headScript()
-                ->prependFile($this->basePath('js/bootstrap.js'))
-        //->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+                //->prependFile($this->basePath('js/bootstrap.min.js'))
+                ->prependFile($this->basePath('js/bootstrap.bundle.min.js'))
+                ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+                ->prependFile($this->basePath('js/date.format.js'))
         ?>
+        
     </head>
     <body>
 

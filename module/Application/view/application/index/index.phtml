@@ -1,3 +1,65 @@
+<script>
+
+    getData();
+
+    setInterval(getData, 10000);
+
+
+    function getData()
+    {
+        //alert("Hello");
+
+        //$data = $this - > _request - > getPost();
+        //        echo $id = $data['id'];
+        //        echo $details = $data['details'];
+        //this wont work;
+
+        $.ajax({
+            url: '/check-sensor-status',
+            type: 'POST',
+            dataType: 'json',
+            async: true,
+            success: function (data, status) {
+
+
+                var body = document.body;
+                var tbl = document.createElement('tbody');
+                tbl.setAttribute("id", "uzivatele_online");
+                var pocitadlo = 1;
+                for (i = 0; i < data.length; i++) {
+                    user = data[i];
+                    var tr = tbl.insertRow();
+                    var td = tr.insertCell();
+                    td.setAttribute("scope", "row");
+                    td.outerHTML = "<th>" + pocitadlo + "</th>";
+                    td.appendChild(document.createTextNode(pocitadlo));
+                    var td = tr.insertCell();
+                    td.appendChild(document.createTextNode(user['cele_jmeno']));
+                    var td = tr.insertCell();
+                    td.appendChild(document.createTextNode(user['umisteni']));
+                    var td = tr.insertCell();
+                    td.appendChild(document.createTextNode(user['telefon']));
+
+
+                    pocitadlo++;
+                }
+
+                //uzivatele_online
+                //var item = document.getElementById("uzivatele_online");
+                //item.parentNode.removeChild(item);
+                //document.getElementById("uzivatele_online_table").appendChild(tbl);
+                //body.appendChild(tbl);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                //alert('Ajax požadavek je chybný! Zavolejte na IT.');
+            }
+        });
+    };
+    //   });
+</script>
+
+
+
 <div class="jumbotron">
     <h1>Vítejte na <span class="m-blue">SmartHome system</span></h1>
 
@@ -15,7 +77,7 @@
     <div class="card-body pt-3">
 
         <div class="row">
-            
+
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -24,7 +86,13 @@
                     <div class="panel-body">
                         <p>
                             Aktuální stav:
+                        <table>
+                            <tr>
+                                <th scope="row"><?= $pocitadlo ?>   </th>
+                            <tr>
+                        </table>
                         </p>
+
 
                     </div>
                 </div>
@@ -44,46 +112,44 @@
             </div>
 
         </div>
-        
-        
+
+
         <?php
-        
         /*
-        
-        <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">Asynchronous DNS reverse resolver</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>
-                            
-                        </p>
 
-                    </div>
-                </div>
-            </div>
+          <div class="row">
+          <div class="col-md-4">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">Asynchronous DNS reverse resolver</h4>
+          </div>
+          <div class="panel-body">
+          <p>
 
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">L2 network topology</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>
-                            L2 network topology discovery based on FDB from Bridge MIB
-                        </p>
-                    </div>
-                </div>
-            </div>
+          </p>
+
+          </div>
+          </div>
+          </div>
+
+          <div class="col-md-4">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">L2 network topology</h4>
+          </div>
+          <div class="panel-body">
+          <p>
+          L2 network topology discovery based on FDB from Bridge MIB
+          </p>
+          </div>
+          </div>
+          </div>
 
 
-                
 
-        </div>
-                  */
-        
+
+          </div>
+         */
         ?>
     </div>
 

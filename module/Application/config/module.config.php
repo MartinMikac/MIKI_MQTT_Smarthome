@@ -24,13 +24,13 @@ return [
                     ],
                 ],
             ],
-            'check-alert' => [
+            'check-sensor-status' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route' => '/check-alert',
+                    'route' => '/check-sensor-status',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action' => 'checkAlert',
+                        'action' => 'checkSensorStatus',
                     ],
                 ],
             ]

@@ -10,6 +10,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class IndexController extends AbstractActionController {
 
@@ -46,7 +47,7 @@ class IndexController extends AbstractActionController {
             $view = new JsonModel($jsonData);
             $view->setTerminal(true);
         } else {
-            $view = new ViewModel();
+                    $view = new ViewModel();
         }
         return $view;
     }    
