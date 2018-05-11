@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?= $this->headTitle('NANA - Network Analzyer')->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headTitle('SmartHome system')->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?=
                 $this->headMeta()
@@ -33,10 +33,13 @@
     <body>
 
         <nav class="navbar navbar-expand-md bg-primary navbar-dark mb-4 col-8 offset-2">
-            <a class="navbar-brand" href="<?= $this->url('home') ?>">NANA - Home</a>
+            <a class="navbar-brand" href="<?= $this->url('home') ?>">SmartHOME - Domů</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <?php /*
+            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -51,13 +54,18 @@
                 </ul>
 
             </div>
+             
+             */
+            
+            ?>
+            
         </nav>
 
         <div class="container col-8">
             <?= $this->content ?>
             <hr>
             <footer>
-                <p>&copy; 2009 - <?= date('Y') ?> by Michal Žejdl (<strong>nana(at)emer.cz </strong> ) </p>
+                <p>&copy; 2009 - <?= date('Y') ?> by Martin Mikač - <strong>martin.mikac(at)gmail.com </strong>  </p>
             </footer>
         </div>
         <?= $this->inlineScript() ?>

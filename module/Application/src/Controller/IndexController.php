@@ -17,16 +17,39 @@ class IndexController extends AbstractActionController {
         return new ViewModel();
     }
 
-    public function downloadAction() {
-        return new ViewModel();
-    }
+    
+    /**
+     * The "ALERT" action displays the info about currently logged in user.
+     */
+    public function checkSensorStatusAction() {
 
-    public function aboutNanaAction() {
-        return new ViewModel();
-    }
+        $request = $this->getRequest();
+        $query = $request->getQuery();
 
-    public function todoAction() {
-        return new ViewModel();
-    }
+        if ($request->isXmlHttpRequest() || $query->get('showJson') == 1) {
 
+
+            $jsonData = array();
+            $idx = 0;
+            //
+            //            foreach ($data as $sampledata) {
+            $temp = array(
+                'isAlert' => "true",
+                'cele_jmeno' => "Novák",
+                'umisteni' => "Čítárna",
+                'telefon' => "723 027 278"
+            );
+            $jsonData[$idx++] = $temp;
+            //            }
+            //$view = new JsonModel($alerts);
+            
+            $view = new JsonModel($jsonData);
+            $view->setTerminal(true);
+        } else {
+            $view = new ViewModel();
+        }
+        return $view;
+    }    
+
+    
 }

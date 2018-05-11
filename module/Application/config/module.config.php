@@ -24,46 +24,16 @@ return [
                     ],
                 ],
             ],
-            'download' => [
+            'check-alert' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/download/',
+                    'route' => '/check-alert',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'download',
+                        'action' => 'checkAlert',
                     ],
                 ],
-            ],
-            'about-nana' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/about-nana',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'aboutNana',
-                    ],
-                ],
-            ],
-            'todo' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/todo',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'todo',
-                    ],
-                ],
-            ],
-            'application' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'    => '/application[/:action]',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
+            ]
         ],
     ],
     'controllers' => [
@@ -86,5 +56,6 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
+        'strategies' => array('ViewJsonStrategy',),
     ],
 ];
