@@ -1,0 +1,65 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('NANA - Network Analzyer')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?=
+                $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?=
+                $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+
+                //->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap.css'))
+                ->prependStylesheet($this->basePath('css/style.css'))
+        ?>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+        <!-- Scripts -->
+        <?=
+                $this->headScript()
+                ->prependFile($this->basePath('js/bootstrap.js'))
+        //->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+        ?>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-md bg-primary navbar-dark mb-4 col-8 offset-2">
+            <a class="navbar-brand" href="<?= $this->url('home') ?>">NANA - Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link font-weight-bold" href="<?= $this->url('download') ?>">Download</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link font-weight-bold" href="<?= $this->url('about-nana') ?>">About Nana </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link font-weight-bold" href="<?= $this->url('todo') ?>">Todo </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div class="container col-8">
+            <?= $this->content ?>
+            <hr>
+            <footer>
+                <p>&copy; 2009 - <?= date('Y') ?> by Michal Žejdl (<strong>nana(at)emer.cz </strong> ) </p>
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>
