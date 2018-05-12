@@ -2,7 +2,7 @@
 
     getData();
 
-    setInterval(getData, 10000);
+    setInterval(getData, 1000);
 
 
     function getData()
@@ -27,21 +27,20 @@
                 tbl.setAttribute("id", "uzivatele_online");
                 var pocitadlo = 1;
                 for (i = 0; i < data.length; i++) {
-                    user = data[i];
-                    var tr = tbl.insertRow();
-                    var td = tr.insertCell();
-                    td.setAttribute("scope", "row");
-                    td.outerHTML = "<th>" + pocitadlo + "</th>";
-                    td.appendChild(document.createTextNode(pocitadlo));
-                    var td = tr.insertCell();
-                    td.appendChild(document.createTextNode(user['cele_jmeno']));
-                    var td = tr.insertCell();
-                    td.appendChild(document.createTextNode(user['umisteni']));
-                    var td = tr.insertCell();
-                    td.appendChild(document.createTextNode(user['telefon']));
+                    senzory = data[i];
+                    
+                    var item = document.getElementById("senzor1");
+                       if (item != null) {
+                           
+                           //item.appendChild(document.createTextNode('data: ' + senzory.cele_jmeno));
+                           //item.setCapture( senzory.cele_jmeno);
+                           //item.parentNode.removeChild(item);
+                           //item.appendChild(document.createTextNode('data: ' + senzory.cele_jmeno));
+                           //item.textContent = 'data: ' + senzory.cele_jmeno ;
+                           item.textContent = senzory.balkon_1p ;
+                           
+                          }                    
 
-
-                    pocitadlo++;
                 }
 
                 //uzivatele_online
@@ -85,12 +84,7 @@
                     </div>
                     <div class="panel-body">
                         <p>
-                            Aktuální stav:
-                        <table>
-                            <tr>
-                                <th scope="row"><?= $pocitadlo ?>   </th>
-                            <tr>
-                        </table>
+                            Aktuální stav: <b id="senzor1"> Neznámo</b>
                         </p>
 
 

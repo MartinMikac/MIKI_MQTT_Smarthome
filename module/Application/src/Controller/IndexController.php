@@ -11,6 +11,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\View\Model\JsonModel;
+use Bluerhinos\phpMQTT;
 
 class IndexController extends AbstractActionController {
 
@@ -36,6 +37,7 @@ class IndexController extends AbstractActionController {
             //            foreach ($data as $sampledata) {
             $temp = array(
                 'isAlert' => "true",
+                'balkon_1p' => "34,5",
                 'cele_jmeno' => "Novák",
                 'umisteni' => "Čítárna",
                 'telefon' => "723 027 278"
