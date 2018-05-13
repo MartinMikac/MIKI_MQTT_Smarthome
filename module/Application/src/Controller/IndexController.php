@@ -43,6 +43,8 @@ class IndexController extends AbstractActionController {
 
 
             $mqtt = new phpMQTT($server, $port, $client_id);
+            
+            $mqtt->debug = true;
 
             if (!$mqtt->connect(true, NULL, $username, $password)) {
                 exit(1);
@@ -50,12 +52,17 @@ class IndexController extends AbstractActionController {
 
             $topics['kvetiny/senzor'] = array("qos" => 0, "function" => "procmsg");
             $mqtt->subscribe($topics, 0);
+            
+            error_log("povedl se subscribe!!!!! ");
 
-            /*while ($mqtt->proc()) {
+            /*
+            while ($mqtt->proc()) {
                 if (array_count_values($this->stavySenzoru) > 0){
-                    break;
+                    
                 }
-                print_r($this->stavySenzoru);
+                break;
+                
+                
             }
             */
 
@@ -96,9 +103,11 @@ class IndexController extends AbstractActionController {
         echo "Msg Recieved: " . date("r") . "\n";
         echo "Topic: {$topic}\n\n";
         echo "\t$msg\n\n";
-        $this->stavySenzoru = array(
-          $topic => $msg
-        );
+        
+        error_log("procmsg!!!!! ");
+        error_log($topic);
+        error_log($msg);
+        
     }
 
 }
